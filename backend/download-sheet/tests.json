@@ -1,0 +1,20 @@
+{
+  "tests": [
+    {
+      "name": "Missing id",
+      "method": "GET",
+      "path": "/",
+      "expectedStatus": 400,
+      "expectedBody": {"error": "id обязателен"},
+      "bodyMatcher": "partial"
+    },
+    {
+      "name": "Not found id",
+      "method": "GET",
+      "path": "/?id=999999&format=csv",
+      "expectedStatus": 404,
+      "expectedBody": {"error": "Запись не найдена или не обработана"},
+      "bodyMatcher": "partial"
+    }
+  ]
+}
